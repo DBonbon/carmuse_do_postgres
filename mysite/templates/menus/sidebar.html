@@ -9,7 +9,7 @@
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: #C2B280; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
@@ -19,15 +19,22 @@
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 20px;
+  color: #ba55d3;
   display: block;
   transition: 0.3s;
 }
 
+.sidebar a h5 {
+  color: #ff8c00;
+}
+.card {
+  background-color: #F2D2BD;
+}
+
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #cd5c5c;
 }
 
 /* Position and style the close button (top right corner) */
@@ -43,7 +50,7 @@
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
+  background-color: #A95C68;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -70,7 +77,9 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   
   {% categories_list %}
-    {% mediums_list %}
+  {% locations_list %}
+  {% mediums_list %}
+    {% supports_list %}
   
 </div>
 

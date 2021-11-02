@@ -1,9 +1,14 @@
 {% load wagtailroutablepage_tags wagtailcore_tags %}
 
-<div class="card my-4">
-  <h5 class="card-header">Medium</h5>
-  <div class="card-body">
-    <div class="row">
+  <div class="card">
+    <div class="card-header">
+      <a class="card-link" data-toggle="collapse" href="#collapseThree">
+        <h5>Mediums</h5>
+      </a>
+    </div>
+    <div id="collapseThree" class="collapse">
+      <div class="card-body">
+        <div class="row">
       <div class="col-lg-12">
         <ul class="list-unstyled mb-0">
           {% for medium in mediums %}
@@ -18,5 +23,8 @@
         </ul>
       </div>
     </div>
+      </div>
+    </div>
   </div>
-</div>
+
+
