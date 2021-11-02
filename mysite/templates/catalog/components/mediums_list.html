@@ -8,7 +8,7 @@
         <ul class="list-unstyled mb-0">
           {% for medium in mediums %}
             <li>
-              <a href="{% routablepageurl painting_index_page 'post_by_medium' medium.slug %}">
+              <a href="{% routablepageurl painting_index_page 'post_by_medium' medium.slug %}"
                 class= "link-primary text-decoration-none">{{ medium.name }}
               </a>
             </li>

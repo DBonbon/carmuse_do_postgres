@@ -8,7 +8,7 @@
         <ul class="list-unstyled mb-0">
           {% for location in locations %}
             <li>
-              <a href="{% routablepageurl painting_index_page 'post_by_location' location.slug %}">
+              <a href="{% routablepageurl painting_index_page 'post_by_location' location.slug %}"
                 class= "link-primary text-decoration-none">{{ location.name }}
               </a>
             </li>

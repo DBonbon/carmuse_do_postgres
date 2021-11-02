@@ -89,7 +89,7 @@ class PaintingIndexPage(RoutablePageMixin, Page):
     """Listing page lists all the Detail Pages(paintings)"""
 
     template = "catalog/painting_index_page.html"
-    max_count = 1
+    #max_count = 1
 
     subtitle = RichTextField(
         features=['h6', 'h5', 'bold', 'italic'],
