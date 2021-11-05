@@ -1,0 +1,31 @@
+if problem with dotenv
+run 
+pip ininstall python-dotenv
+pip install django-dotenv
+
+to do:
+work with one DB-email dO about it. 
+DB backup - how it works, can it works with DO?
+
+Side menu:
+
+fix tag_list
+add sidemenu icon to navbar 
+
+navbar
+style navbar
+favicon - check if works on DO, else what's the problem?
+Place logo and tile in middle
+
+check Flex page add googies to it. 
+
+Add blog?
+
+Add recaptcha
+
+CSS
+footer asbolute in button
+pass all CSS to main.css
+
+
+PAss the site to teki
