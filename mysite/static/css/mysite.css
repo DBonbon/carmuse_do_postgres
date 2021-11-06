@@ -57,12 +57,12 @@ p.card-subtitle {
     background-color: grey;
 }
 .img-background {
-    position: absolute;
+    position: fluid;
     max-width: 100%;
     max-height: 100%;
     left: 0;
-    background-color: navy;
-    opacity: 0.3;
+    background-color:  #4db6ac;
+    opacity: 0;
     transition: opacity 300ms;
 }
 a:hover .img-background {
@@ -76,6 +76,21 @@ p.card-subtitle {
     border: none;
 }
 
+.card:hover{
+    box-shadow: 8px 8px 8px  #4e342e;
+    transform:scale(1.05);
+}
+
+.card{
+  border:1px solid black;
+  transition:.3s;
+  margin: 3rem;
+}
+
+.card-img-overlay {
+  justify-content: around;
+  color: white;
+}
 
 .card-icon {
   color: transparent;
