@@ -1,61 +1,46 @@
 {% extends "base.html" %}
-{% load wagtailimages_tags wagtailroutablepage_tags catalogapp_tags %}
+{% load wagtailimages_tags wagtailroutablepage_tags catalogapp_tags static %}
 {% load wagtailcore_tags %}
 
 {% block content %}
 
 <style>
 
-.card-title {
-  color: white;
-  text-shadow:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
-}
 
-.card-icon {
-  color: transparent;
-}
 
-.card-icon:hover {
-  color: PaleVioletRed;
-}
 
 
 </style>
 {% include 'menus/sidebar.html' %}
 <div class="container">
     <!--       <div class="container mb-sm-5 mt-sm-5">-->
-    <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
-
-           <div class="container">
-                  <div class="row">
-                      <div class="col-md-3 ms-md-auto">
-
-                      </div>
-                      {#% categories_list %#}
-                      {#% include 'catalog/components/sidebar.html' %#}
-                  </div>
-                </div>
+    <div class="header">
+    <h1>{{ self.title }}</h1>
+    <h3>{{ self.subtitle|richtext }}</h3>
+    </div>
 
 
     <div class="col-12">
 
         <div class="card-columns">
             {% for painting in posts %}
-            {% image painting.image width-350 as img %}
-
+            
 
                 <div class="card">
-                    <img src="{{ img.url }}" alt="{{ img.alt }}" class="painting-img-top rounded w-100"/>
-                    <div class="card-img-overlay text-white d-flex flex-column justify-content-center text-center">
-                        <h5>{{ painting.title }}</h5>
-                        <div class="icon-expo text-center">
-                            <a href="{% pageurl painting %}" class="btn btn-primary mt-4">Read More</a>
-                        </div>
+                    <a href="{% pageurl painting %}">
+                    {% if painting.image %}
+            {% image painting.image width-350 class="img-front rounded"%}
+            {% else %}
+            <img alt="" src="{% static 'images/transparent.png' %}" width="350" class="img-default rounded">
+            {% endif %}
+
+                <div class="card-img-overlay">
+                <img alt="" src="{% static 'images/transparent.png' %}" width="350" class="img-background rounded">
+
+                        <h5 class="card-title">{{ painting.title }}</h5>
+                            <p><i class="card-icon fa fa-search fa-3x"></i></p>
                     </div>
+                    </a>
                 </div>
 
 
