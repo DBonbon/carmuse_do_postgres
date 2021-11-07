@@ -1,15 +1,30 @@
 {% extends "base.html" %}
 
-{% load wagtailimages_tags wagtailroutablepage_tags wagtailcore_tags %}
+{% load wagtailimages_tags wagtailroutablepage_tags wagtailcore_tags static %}
 
 
 {% block content %}
 
+<style>
+    
+.card:hover .edit {
+	display: block;
+}
+.edit {
+	padding-top: 70%;	
+	padding-right: 50%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: none;
+}
+
+</style>
 <div class="container">
     <!--       <div class="container mb-sm-5 mt-sm-5">-->
-    <div class="text-center mb-sm-5">
+    <div class="page-titles">
     <h1>{{ self.title }}</h1>
-    <h6>{{ page.subtitle|richtext }}</h6>
+    <h3>{{ page.subtitle|richtext }}</h3>
         </div>
 
 
@@ -19,16 +34,19 @@
             {% for e in expos %}
             {% image e.main_image width-350 as img %}
 
-            <div class="card-container" data-toggle="modal" data-target="#portfolioModal1{{ e.id }}">
+            <div class="card-container">
 
                 <div class="card">
                     <img src="{{ img.url }}" alt="{{ img.alt }}" class="t-img-top"/>
+                <div class="card-img-overlay d-flex flex-wrap">
+                <img alt="" src="{% static 'images/transparent.png' %}" width="350" class="img-background rounded">
+
                     <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
                         <h4 class="title">{{e.title}}</h4>
                         <p class="text">{{e.subtitle|richtext}}</p>
 
                         <div class="icon text-center">
-                            <a href="{% pageurl e e.id %}"><i class="fa fa-search fa-3x"></i></a>
+                            <a class="edit" href="{% pageurl e e.id %}"><i class="fa fa-search fa-3x"></i></a>
 <!--                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#largeModal{{ t.id }}">-->
 <!--                                Launch demo modal-->
 <!--                            </button>-->

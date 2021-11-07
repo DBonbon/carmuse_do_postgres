@@ -9,7 +9,7 @@ body {
 
 }
 
-header {
+.page-titles {
   text-align: center;
   color:  #00897b ;
   font-size: 30px;
@@ -92,6 +92,9 @@ p.card-subtitle {
   color: white;
 }
 
+.card-img-overlay:hover .card-icon {
+	display: block;
+}
 .card-icon {
   color: transparent;
 }
