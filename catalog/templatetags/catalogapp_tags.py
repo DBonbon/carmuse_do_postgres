@@ -41,10 +41,10 @@ def tags_list(context):
 @register.inclusion_tag("catalog/components/painting_tags_list.html", takes_context=True)
 def painting_tags_list(context):
     page = context["page"]
-    painting_tags = page.tags.all()
+    painting_tags = page.painting_tags.all()
     return {
         "request": context["request"],
-        "painting_tags": painting_tags,
+        "tags": tags,
     }
 
 

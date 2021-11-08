@@ -7,7 +7,7 @@ from django.core.cache import cache
 from django.core.cache.utils import make_template_fragment_key
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
-
+from taggit.models import Tag as TaggitTag
 from taggit.models import TaggedItemBase
 
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
@@ -299,6 +299,10 @@ class PaintingPageTag(TaggedItemBase):
         on_delete=models.CASCADE,
     )
 
+@register_snippet
+class Tag(TaggitTag):
+    class Meta:
+        proxy = True
 
 
 
@@ -355,3 +359,4 @@ class PaintingMedium(models.Model):
 
     def __str__(self):
         return self.name
+        

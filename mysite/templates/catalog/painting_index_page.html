@@ -6,7 +6,6 @@
 
 <style>
 
-
 </style>
 {% include 'menus/sidebar.html' %}
 <div class="container">
@@ -26,16 +25,15 @@
                 <div class="card">
                     <a href="{% pageurl painting %}">
                     {% if painting.image %}
-            {% image painting.image width-350 class="img-front rounded"%}
+            {% image painting.image width-350 class="img-front rounded card-img-top"%}
             
             {% else %}
             <img alt="" src="{% static 'images/transparent.png' %}" width="350" class="img-default rounded">
             {% endif %}
 
-                <div class="card-img-overlay d-flex flex-wrap">
-                <img alt="" src="{% static 'images/transparent.png' %}" width="350" class="img-background rounded">
+                <div class="card-img-overlay text-center">
 
-                        <h5 class="card-title">{{ painting.title }}</h5>
+                        <h5 class="card-title outline-text">{{ painting.title }}</h5>
                             <p><i class="card-icon fa fa-search fa-3x"></i></p>
                     </div>
                     </a>

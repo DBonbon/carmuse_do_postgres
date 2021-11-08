@@ -33,6 +33,7 @@ class About(AbstractEmailForm, Page):
 
     #max_count = 1
 
+    mission_section_title = RichTextField(blank=True, help_text='Title of your mission title')
     our_mission = RichTextField(null=True, blank=True, help_text='Describe your mission')
     contact_section_title = RichTextField(blank=True)
     contact_subtitle = RichTextField(blank=True)
@@ -40,7 +41,7 @@ class About(AbstractEmailForm, Page):
 
 
     content_panels = AbstractEmailForm.content_panels + Page.content_panels + [
-        #FieldPanel("about_subtitle"),
+        FieldPanel('mission_section_title'),
         FieldPanel('our_mission'),
         FieldPanel('contact_section_title'),
         FieldPanel("contact_subtitle"),

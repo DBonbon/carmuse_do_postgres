@@ -4,54 +4,34 @@
 {% block content %}
 
 <style>
-.card-icon {
-  color: transparent;
-}
-
-.card-icon:hover {
-  color: PaleVioletRed;
-}
-
-.card-title {
-  color: white;
-  text-shadow:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
-}
 
 .card {
   border-radius: 50%;
 }
 
-
-.card-title{
-    color: #861657;
-    font-size: 1.5em;
-}
 </style>
+<div class="container">
 
 <div class="container">
-    <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
-
+    <!--       <div class="container mb-sm-5 mt-sm-5">-->
+    <div class="page-titles">
+    <h1>{{ self.title }}</h1>
+    <h3>{{ self.subtitle|richtext }}</h3>
+    </div>
+    
     <div class="row justify-content-center">
         <div class="card-columns center">
         {% for painter in posts %}
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 15rem;">
             {% image painter.painter_image fill-200x200 as img %}
 
 
                     <img src="{{ img.url }}" alt="{{ img.alt }}" class="painter-img-fluid w-100 rounded-circle"/>
 
                     <div class="card-img-overlay text-center">
-                        <div class="card-title">{{ painter.title }}</div>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
+                        <div class="card-title outline-text">{{ painter.title }}</div>
                             <a href="{% pageurl painter %}">
-                                <i class='card-icon text-centered fas fa-expand fa-3x'></i>
+                                <i class='card-icon fas fa-expand fa-3x'></i>
                                 </a>
 
 

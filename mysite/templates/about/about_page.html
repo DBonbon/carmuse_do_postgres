@@ -4,47 +4,39 @@
 {% block content %}
 
 
-    <style>
-        .contact-form {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .contact-form li {
-            margin-bottom: 1.5rem;
-        }
-        .contact-form label {
-            display: block;
-            font-weight: bold;
-        }
-        .contact-form .helptext {
-            display: block;
-            font-size: 80%;
-        }
-    </style>
+<style>
+.container-contact{
+    text: secondary;
+}
+</style>
 
-
-
-<section class="page-section bg-secondary text-white mb-0" id="about">
-    <div class="container">
-        <!-- About Section Heading-->
-        <h1 class="page-section-heading text-center text-uppercase text-white">{{ self.title }}</h1>
-        <h6 class="page-section-heading text-center text-uppercase text-white">{{ self.subtitle|richtext }}</h6>
-
-        <!-- About Section Content-->
-        <div class="lead">
-            <p>
-                {{ self.our_mission|richtext }}
-
-            </p>
-        </div>
-    </div>
-
-<!-- Contact Section Content-->
-</section>
 
 <section>
-    <div class="container mt-5 mb-5">
-        <h1 class="page-section-heading text-center text-uppercase text-red">{{ page.contact_section_title|richtext }}</h1>
+    <!--       <div class="container mb-sm-5 mt-sm-5">-->
+    <!-- the id="about" is kept just to check if that matters>-->
+    <div class="page-titles id="about"">
+    <h1>{{ self.title }}</h1>
+    <h3>{{ self.subtitle|richtext }}</h3>
+    </div>
+
+    <!-- About Section Content-->
+    <div class="lead text-white px-5 py-3">
+     <h2 class="text-center text-white">
+         {{ self.mission_section_title|richtext }}
+     </h2>
+     <p>
+        {{ self.our_mission|richtext }}
+     </p>
+    </div>
+
+</section>
+
+<!-- Contact Section Content-->
+
+
+<div>
+    <div class="container-contact px-5 py-3 text-muted">
+        <h2 class="text-center">{{ page.contact_section_title|richtext }}</h2>
         <h6 class="page-section-heading text-center text-uppercase text-red">
             {{ self.contact_subtitle|richtext }}
         </h6>
@@ -55,11 +47,11 @@
                 {{ form.as_ul }}
             </ul>
 
-            <button type="submit" class="btn btn-success">
+            <button type="submit" class="btn btn-dark">
                 Submit Form
             </button>
         </form>
     </div>
-</section>
+</div>
 
 {% endblock %}
