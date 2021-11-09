@@ -12,25 +12,12 @@ from django.template import Library, loader
 register = Library()
 
 
-# @register.simple_tag()
-# def post_page_date_slug_url(post_page, blog_page):
-#     post_date = post_page.post_date
-#     url = blog_page.full_url + blog_page.reverse_subpage(
-#         "post_by_date_slug",
-#         args=(
-#             post_date.year,
-#             "{0:02}".format(post_date.month),
-#             "{0:02}".format(post_date.day),
-#             post_page.slug,
-#         ),
-#     )
-#     return url
-
-
 @register.inclusion_tag('catalog/components/tags_list.html',
                         takes_context=True)
 def tags_list(context):
     tags = Tag.objects.all()
+    print([tag.slug for tag in tags])
+    Tag.objects.exclude(slug='')
     return {
         'request': context['request'],
         'painting_index_page': context['painting_index_page'],

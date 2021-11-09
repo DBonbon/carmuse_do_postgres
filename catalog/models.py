@@ -7,6 +7,7 @@ from django.core.cache import cache
 from django.core.cache.utils import make_template_fragment_key
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
+from modelcluster.tags import ClusterTaggableManager
 from taggit.models import Tag as TaggitTag
 from taggit.models import TaggedItemBase
 
@@ -19,7 +20,6 @@ from wagtail.core.blocks import CharBlock, BooleanBlock, DateBlock, StructBlock,
 from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
-from modelcluster.tags import ClusterTaggableManager
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
@@ -27,6 +27,7 @@ from wagtail.snippets.models import register_snippet
 from streams import blocks
 
 # ATTRIBUTES
+
 
 # CATEGORY
 
@@ -118,6 +119,7 @@ class PaintingIndexPage(RoutablePageMixin, Page):
         self.search_term = tag
         self.posts = self.get_posts().filter(tags__slug=tag)
         return Page.serve(self, request, *args, **kwargs)
+        #return self.render(request)
 
     @route(r'^category/(?P<category>[-\w]+)/$')
     def post_by_category(self, request, category, *args, **kwargs):
@@ -295,16 +297,15 @@ class PaintingDetailPage(Page):
 class PaintingPageTag(TaggedItemBase):
     content_object = ParentalKey(
         'PaintingDetailPage',
-        related_name='tagged_items',
+        related_name='post_tags',
         on_delete=models.CASCADE,
     )
+    
 
 @register_snippet
 class Tag(TaggitTag):
     class Meta:
         proxy = True
-
-
 
 
 # SUPPORT
