@@ -74,7 +74,7 @@ p.card-subtitle {
     color: white;
 }
 
-.card:hover{
+.gallery:hover{
     box-shadow: 8px 8px 8px  #4e342e;
     transform:scale(1.05);
     color: #800020;
@@ -84,7 +84,7 @@ p.card-subtitle {
 .card{
   border:1px solid black;
   transition:.3s;
-  margin: 3rem;
+  margin: 0rem;
   background-color: #CD7F32;
 }
 
@@ -92,7 +92,7 @@ p.card-subtitle {
   justify-content: around;
 }
 
-.card:hover .card-icon {
+.gallery:hover .card-icon {
 	display: block;
 }
 .card-icon {
