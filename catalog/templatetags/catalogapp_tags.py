@@ -1,7 +1,7 @@
 from urllib.parse import urlparse, urlunparse
 from django.http import QueryDict
-from catalog.models import PaintingCategory as Category #Tag
-from catalog.models import PaintingPageTag as Tag
+from catalog.models import PaintingCategory as Category
+from catalog.models import Tag #not from paintingtagpage IMPORTAMT
 from catalog.models import PaintingLocation as Location
 from catalog.models import PaintingLocation as Medium
 from catalog.models import PaintingLocation as Support
@@ -16,8 +16,8 @@ register = Library()
                         takes_context=True)
 def tags_list(context):
     tags = Tag.objects.all()
-    print([tag.slug for tag in tags])
-    Tag.objects.exclude(slug='')
+    #print([tag.slug for tag in tags])
+    #Tag.objects.exclude(slug='')
     return {
         'request': context['request'],
         'painting_index_page': context['painting_index_page'],
@@ -31,7 +31,7 @@ def painting_tags_list(context):
     painting_tags = page.painting_tags.all()
     return {
         "request": context["request"],
-        "tags": tags,
+        "painting_tags": painting_tags,
     }
 
 

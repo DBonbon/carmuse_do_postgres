@@ -20,33 +20,6 @@ from wagtail.snippets.models import register_snippet
 from wagtail.core import blocks as streamfield_blocks
 # from streams import blocks
 
-"""
-1 create a list with page header and subtitle . 
-2. add context for expo page. Pass to page only header, subtitle image and button. No cards
-3. add carousel orderable and link to page.
-4. check migrations. If work. display it on the current cards of the with bground whene the button is used for modal the carfousel
-"""
-
-# class ExpoPageExpoImages(Orderable):
-#     """Between 1 and 9 images for the home page carousel."""
-#     page = ParentalKey(ExpoPage, related_name="expo_images")
-#     carousel_image = models.ForeignKey(
-#         "wagtailimages.Image",
-#         null=True,
-#         blank=False,
-#         on_delete=models.SET_NULL,
-#         related_name="+",
-#     )
-#
-#     carousel_caption = models.CharField(blank=True, max_length=1000)
-#
-#     panels = [
-#         ImageChooserPanel("carousel_image"),
-#         FieldPanel("carousel_caption"),
-#     ]
-
-
-
 class ExpoIndexPage(Page):
 
     subpage_types = ['expo.ExpoPage']

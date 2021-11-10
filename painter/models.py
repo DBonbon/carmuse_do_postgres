@@ -29,6 +29,7 @@ from wagtail.embeds.blocks import EmbedBlock
 class PaintersPage(RoutablePageMixin, Page):
 
     template = "painter/painters_page.html"
+    subpage_types = ['PainterPage']
 
     subtitle = RichTextField(
         features=['h6', 'h5', 'bold', 'italic'],

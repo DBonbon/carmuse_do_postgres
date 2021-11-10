@@ -1,4 +1,4 @@
-{% load wagtailroutablepage_tags wagtailcore_tags catalogapp_tags %}
+{% load wagtailroutablepage_tags wagtailcore_tags %}
 
 <div class="card">
   <div class="card-header">
@@ -13,11 +13,9 @@
         <ul class="list-unstyled mb-0">
           {% for tag in tags %}
             <li>
-      <a href="{% routablepageurl painting_index_page "post_by_tag" tag %}" class="text-decoration-none">
+      <a href="{% routablepageurl painting_index_page "post_by_tag" tag.slug %}" class="text-decoration-none">
         <span class="badge bg-secondary">{{ tag }}</span>
       </a>
-      <--paintingpage_tag.painting_tag.name -->
-           
               </li>
           {% empty %}
             'No tags yet'

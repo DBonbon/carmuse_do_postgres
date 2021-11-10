@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'search',
 
     'about',
-    #'blog',
+    'blog',
     'catalog',
     'contact',
     'expo',
@@ -108,7 +108,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
  
-
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
 if DEVELOPMENT_MODE is True:
@@ -123,7 +122,7 @@ elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
         raise Exception("DATABASE_URL environment variable not defined")
     DATABASES = {
         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    }
+    } 
 
 AUTH_PASSWORD_VALIDATORS = [
     {
