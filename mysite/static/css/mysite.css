@@ -6,7 +6,6 @@ body {
     position: relative;
     padding-bottom: 50px;
     background: #f1e3d3 !important;
-
 }
 
 .page-titles {
@@ -141,3 +140,5 @@ p.card-subtitle {
      1px 1px 0 #000;
 }
 .pl-6{margin-left:5rem;}
+
+/* The sidebar styles are in the sidebar template somehow it created a problem to pass them from here */
