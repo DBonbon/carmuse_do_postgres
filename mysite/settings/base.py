@@ -172,26 +172,33 @@ STATICFILES_DIRS = [
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/3.2/ref/contrib/staticfiles/#manifeststaticfilesstorage
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+## Check to above line before production. to conform with wagtail conventions.
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = BASE_DIR / "staticfiles-cdn" # in production, we want cdn
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, 'staticfiles')
 
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = BASE_DIR / "staticfiles-cdn" / "uploads"
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
+MEDIA_URL =  'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, 'mediafiles')
 
-from .cdn.conf import * # noqa
+#from .cdn.conf import * # noqa
 #AWS DO SETTINGS
-#AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
-#AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
-#AWS_STORAGE_BUCKET_NAME=os.getenv("AWS_STORAGE_BUCKET_NAME")
-#AWS_S3_ENDPOINT_URL=os.getenv("AWS_S3_ENDPOINT_URL")
+AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME=os.getenv("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_ENDPOINT_URL=os.getenv("AWS_S3_ENDPOINT_URL")
 
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-#AWS_S3_OBJECT_PARAMETERS={"CacheControl": "mas-age=86400",}
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+AWS_S3_OBJECT_PARAMETERS={"CacheControl": "mas-age=86400",}
+AWS_LOCATION=https://teki.fra1.digitaloceanspaces.com
+
+
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "mysite"
